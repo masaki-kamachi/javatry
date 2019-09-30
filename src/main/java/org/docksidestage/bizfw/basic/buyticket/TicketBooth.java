@@ -15,6 +15,9 @@
  */
 package org.docksidestage.bizfw.basic.buyticket;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author jflute
  */
@@ -24,8 +27,7 @@ public class TicketBooth {
     //                                                                          Definition
     //                                                                          ==========
     private static final int MAX_QUANTITY = 10;
-    private static final int ONE_DAY_PRICE = 7400; // when 2019/06/15
-    private static final int TWO_DAY_PRICE = 13200;
+    private static final List<TicketFactory> ticketFactories = Arrays.asList(new OneDayTicketFactory(), new SeveralDaysTicketFactory());
 
     // ===================================================================================
     //                                                                           Attribute
@@ -43,35 +45,41 @@ public class TicketBooth {
     //                                                                          Buy Ticket
     //                                                                          ==========
     public TicketBuyResult buyOneDayPassport(int handedMoney) {
-        if (quantity <= 0) {
-            throw new TicketSoldOutException("Sold out");
-        }
-        if (handedMoney < ONE_DAY_PRICE) {
-            throw new TicketShortMoneyException("Short money: " + handedMoney);
-        }
-        --quantity;
-        recalcSalesProceeds(ONE_DAY_PRICE);
-        return new TicketBuyResult(handedMoney - ONE_DAY_PRICE, new OneDayTicket(ONE_DAY_PRICE));
+        return buyPassport(handedMoney, TicketType.ONE_DAY);
     }
 
     public TicketBuyResult buyTwoDayPassport(int handedMoney) {
-        if (quantity <= 1) {
-            throw new TicketSoldOutException("Sold out");
-        }
-        if (handedMoney < TWO_DAY_PRICE) {
-            throw new TicketShortMoneyException("Short money: " + handedMoney);
-        }
-        quantity = quantity -2;
-        recalcSalesProceeds(TWO_DAY_PRICE);
-        return new TicketBuyResult(handedMoney - TWO_DAY_PRICE, new SeveralDaysTicket(TWO_DAY_PRICE, 2));
+        return buyPassport(handedMoney, TicketType.TWO_DAY);
     }
 
-    private void recalcSalesProceeds(int sales) {
-        if (salesProceeds != null) {
-            salesProceeds = salesProceeds + sales;
-        } else {
-            salesProceeds = sales;
+    public TicketBuyResult buyFourDayPassport(int handedMoney) {
+        return buyPassport(handedMoney, TicketType.FOUR_DAY);
+    }
+
+    private TicketBuyResult buyPassport(int handedMoney, TicketType type) {
+        final int price = type.getPrice();
+        final int count = type.getCount();
+
+        if (quantity < count) {
+            throw new TicketSoldOutException("Sold out");
         }
+        if (handedMoney < price) {
+            throw new TicketShortMoneyException("Short money: " + handedMoney);
+        }
+        quantity = quantity - count;
+
+        if (salesProceeds != null) {
+            salesProceeds = salesProceeds + price;
+        } else {
+            salesProceeds = price;
+        }
+        final int charge = handedMoney - price;
+        Ticket ticket = ticketFactories.stream()
+                .filter(f -> f.suitable(type))
+                .map(f -> f.create(type))
+                .findFirst()
+                .orElseThrow(() -> new TicketTypeNotFoundException("Not fount type: " + type));
+        return new TicketBuyResult(charge, ticket);
     }
 
     public static class TicketSoldOutException extends RuntimeException {
@@ -88,6 +96,14 @@ public class TicketBooth {
         private static final long serialVersionUID = 1L;
 
         public TicketShortMoneyException(String msg) {
+            super(msg);
+        }
+    }
+
+    public static class TicketTypeNotFoundException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
+
+        public TicketTypeNotFoundException(String msg) {
             super(msg);
         }
     }

@@ -15,11 +15,8 @@
  */
 package org.docksidestage.javatry.basic;
 
-import org.docksidestage.bizfw.basic.buyticket.OneDayTicket;
-import org.docksidestage.bizfw.basic.buyticket.Ticket;
-import org.docksidestage.bizfw.basic.buyticket.TicketBooth;
+import org.docksidestage.bizfw.basic.buyticket.*;
 import org.docksidestage.bizfw.basic.buyticket.TicketBooth.TicketShortMoneyException;
-import org.docksidestage.bizfw.basic.buyticket.TicketBuyResult;
 import org.docksidestage.unit.PlainTestCase;
 
 /**
@@ -165,10 +162,10 @@ public class Step05ClassTest extends PlainTestCase {
     public void test_class_moreFix_type() {
         // your confirmation code here
         TicketBooth booth = new TicketBooth();
-        Ticket oneDayTi = booth.buyOneDayPassport(8000);
-        log(oneDayTi.getTicketType());
-        TicketBuyResult twoDayTi = booth.buyTwoDayPassport(20000);
-        log(twoDayTi.getTicket().getTicketType());
+        TicketBuyResult oneDayRes = booth.buyOneDayPassport(8000);
+        log(oneDayRes.getTicket().getCount());
+        TicketBuyResult severalDaysRes = booth.buyTwoDayPassport(20000);
+        log(severalDaysRes.getTicket().getCount());
     }
 
     // ===================================================================================
@@ -192,6 +189,23 @@ public class Step05ClassTest extends PlainTestCase {
      */
     public void test_class_moreFix_useInterface() {
         // your confirmation code here
+        TicketBooth booth = new TicketBooth();
+        TicketBuyResult oneDayRes = booth.buyOneDayPassport(8000);
+        Ticket oneDayTicket = oneDayRes.getTicket();
+        log(oneDayTicket instanceof OneDayTicket);
+        log(((OneDayTicket) oneDayTicket).isAlreadyIn());
+        oneDayTicket.doInPark();
+        log(oneDayTicket.getDisplayPrice());
+        log(((OneDayTicket) oneDayTicket).isAlreadyIn());
+
+        TicketBuyResult twoDayRes = booth.buyTwoDayPassport(20000);
+        Ticket twoDayTicket = twoDayRes.getTicket();
+        log(twoDayTicket instanceof SeveralDaysTicket);
+        log(((SeveralDaysTicket) twoDayTicket).getRemainCount());
+        twoDayTicket.doInPark();
+        twoDayTicket.doInPark();
+        log(twoDayTicket.getDisplayPrice());
+        log(((SeveralDaysTicket) twoDayTicket).getRemainCount());
     }
 
     /**
@@ -200,6 +214,17 @@ public class Step05ClassTest extends PlainTestCase {
      */
     public void test_class_moreFix_wonder() {
         // your confirmation code here
+        TicketBooth booth = new TicketBooth();
+        TicketBuyResult fourDayRes = booth.buyFourDayPassport(30000);
+        Ticket fourDayTicket = fourDayRes.getTicket();
+        log(fourDayTicket instanceof SeveralDaysTicket);
+        log(((SeveralDaysTicket) fourDayTicket).getRemainCount());
+        fourDayTicket.doInPark();
+        fourDayTicket.doInPark();
+        fourDayTicket.doInPark();
+        fourDayTicket.doInPark();
+        log(fourDayTicket.getDisplayPrice());
+        log(((SeveralDaysTicket) fourDayTicket).getRemainCount());
     }
 
     /**
@@ -208,5 +233,34 @@ public class Step05ClassTest extends PlainTestCase {
      */
     public void test_class_moreFix_yourRefactoring() {
         // write confirmation code here
+        // your confirmation code here
+        TicketBooth booth = new TicketBooth();
+        TicketBuyResult oneDayRes = booth.buyOneDayPassport(8000);
+        Ticket oneDayTicket = oneDayRes.getTicket();
+        log(oneDayTicket instanceof OneDayTicket);
+        log(((OneDayTicket) oneDayTicket).isAlreadyIn());
+        oneDayTicket.doInPark();
+        log(oneDayTicket.getDisplayPrice());
+        log(((OneDayTicket) oneDayTicket).isAlreadyIn());
+
+        TicketBuyResult twoDayRes = booth.buyTwoDayPassport(20000);
+        Ticket twoDayTicket = twoDayRes.getTicket();
+        log(twoDayTicket instanceof SeveralDaysTicket);
+        log(((SeveralDaysTicket) twoDayTicket).getRemainCount());
+        twoDayTicket.doInPark();
+        twoDayTicket.doInPark();
+        log(twoDayTicket.getDisplayPrice());
+        log(((SeveralDaysTicket) twoDayTicket).getRemainCount());
+
+        TicketBuyResult fourDayRes = booth.buyFourDayPassport(30000);
+        Ticket fourDayTicket = fourDayRes.getTicket();
+        log(fourDayTicket instanceof SeveralDaysTicket);
+        log(((SeveralDaysTicket) fourDayTicket).getRemainCount());
+        fourDayTicket.doInPark();
+        fourDayTicket.doInPark();
+        fourDayTicket.doInPark();
+        fourDayTicket.doInPark();
+        log(fourDayTicket.getDisplayPrice());
+        log(((SeveralDaysTicket) fourDayTicket).getRemainCount());
     }
 }

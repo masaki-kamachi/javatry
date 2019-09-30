@@ -3,11 +3,13 @@ package org.docksidestage.bizfw.basic.buyticket;
 public class SeveralDaysTicket implements Ticket {
 
     private final int displayPrice;
+    private final int count;
     private int remainCount;
 
-    public SeveralDaysTicket(int displayPrice, int day) {
+    public SeveralDaysTicket(int displayPrice, int count) {
         this.displayPrice = displayPrice;
-        this.remainCount = day;
+        this.count = count;
+        this.remainCount = count;
     }
 
     public void doInPark() {
@@ -21,6 +23,13 @@ public class SeveralDaysTicket implements Ticket {
         return displayPrice;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public boolean isAlreadyIn() {
+        return remainCount < 1;
+    }
     public int getRemainCount() {
         return remainCount;
     }

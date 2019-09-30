@@ -21,4 +21,7 @@ public class OneDayTicket implements Ticket {
     public boolean isAlreadyIn() {
         return alreadyIn;
     }
+    public int getCount() {
+        return 1;
+    }
 }
