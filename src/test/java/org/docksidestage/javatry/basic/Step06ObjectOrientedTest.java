@@ -81,6 +81,7 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
         // ...
         // ...
 
+        // TODO chikama もう一個、間違いがある by jflute (2019/10/02)
         //
         // [do in park now!!!]
         //
@@ -340,6 +341,7 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
      */
     public void test_objectOriented_writing_generalization_extractToAbstract() {
         // your confirmation code here
+        // TODO chikama "int offset = pageSize * (pageNumber - 1);" の部分が冗長しているので再利用したいね by jflute (2019/10/02)
         St6MySql mysql = new St6MySql();
         log(mysql.buildPagingQuery(2, 20));
         log(mysql instanceof AbstractSt6Sql);
@@ -354,6 +356,8 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
      */
     public void test_objectOriented_writing_specialization_extractToConcrete() {
         // your confirmation code here
+        // TODO chikama 修行++: もし、「St6MacとSt6WindowsでgetUserDirectory()が同じなので再利用すべきでは？」って言われたらどう答える？ by jflute (2019/10/02)
+        // (getFileSeparator()も似たような話になります)
         St6OperationSystem mac = new St6Mac("qwer");
         log(mac.buildUserResourcePath("/tmp"));
         St6OperationSystem windows = new St6Windows("asdf");
@@ -385,5 +389,6 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
      */
     public void test_objectOriented_writing_() {
         // do nothing here
+        // TODO jflute [face-to-face]打ち合わせで聞きましょう (2019/10/02)
     }
 }

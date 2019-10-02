@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 
 import org.docksidestage.unit.PlainTestCase;
 
+// TODO chikama unusedのimport宣言があるよ by jflute (2019/10/02)
 /**
  * The test of if-for. <br>
  * Operate exercise as javadoc. If it's question style, write your answer before test execution. <br>
@@ -195,6 +196,7 @@ public class Step02IfForTest extends PlainTestCase {
         }
         log(sea); // should be same as before-fix
 
+        // TODO chikama [ふぉろー]もはや良い方法とも言えないけど、new boolean[0] も使えるよ by jflute (2019/10/02)
         List<Boolean> next = new ArrayList<>();
         next.add(0, true);
         List<String> result = new ArrayList<>();

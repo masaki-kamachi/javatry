@@ -98,6 +98,12 @@ public class Step07ExceptionTest extends PlainTestCase {
             log(canonicalPath);
         } catch (IOException e) {
             log(e.getMessage());
+            // TODO chikama これ、本当にスタックトレース出るのかな？...一応出るね。でもすごく見づらいけど by jflute (2019/10/02)
+            // ちなみに、Eclipseだとこういう警告が出ている:
+            // "Type StackTraceElement[] of the last argument to method log(Object...)
+            // doesn't exactly match the vararg parameter type.
+            // Cast to Object[] to confirm the non-varargs invocation,
+            // or pass individual arguments of type Object for a varargs invocation."
             log(e.getStackTrace());
         }
     }
@@ -151,6 +157,7 @@ public class Step07ExceptionTest extends PlainTestCase {
         }
     }
 
+    // TODO jflute [face-to-face]打ち合わせで、ここの話をする。例外の翻訳重要 (2019/10/02)
     // ===================================================================================
     //                                                                         Translation
     //                                                                         ===========

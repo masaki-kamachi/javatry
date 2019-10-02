@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 
 import org.docksidestage.unit.PlainTestCase;
 
+// TODO chikama authorよろしくー (your_name_hereの部分) by jflute (2019/10/02)
 /**
  * The test of variable. <br>
  * Operate exercise as javadoc. If it's question style, write your answer before test execution. <br>

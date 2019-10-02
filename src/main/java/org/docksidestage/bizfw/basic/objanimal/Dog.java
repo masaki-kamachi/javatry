@@ -52,6 +52,7 @@ public class Dog extends Animal implements FastRunner, Swimmer {
         logger.debug("...Running now");
     }
 
+    // TODO chikama タグコメント Runner の中に、swim()が入っている by jflute (2019/10/02)
     @Override
     public void swim() {
         logger.debug("Dog shaking...");
