@@ -5,9 +5,11 @@ public enum TicketType {
     TWO_DAY(2, 13200),
     FOUR_DAY(4, 22400);
 
+    // TODO chikama [ていあん]一応、final付けられるかなと。どこまで付けるかってさじ加減はあるけど by jflute (2019/10/02)
     private int count;
     private int price;
 
+    // TODO chikama [ざつだん]そっか、private省略できるんだっけ... by jflute (2019/10/02)
     TicketType(int count, int price) {
         this.count = count;
         this.price = price;

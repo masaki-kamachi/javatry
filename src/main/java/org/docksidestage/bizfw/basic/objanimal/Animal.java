@@ -55,6 +55,7 @@ public abstract class Animal implements Loudable {
         return barkProcess.bark(this);
     }
 
+    // TODO chikama 修行++: 「これらprotectedメソッドたちをAnimalに残した理由は？」と聞かれたらどう答える？ by jflute (2019/10/02)
     protected void prepareAbdominalMuscle() {
         logger.debug("...Using my abdominal muscle"); // dummy implementation
         downHitPoint();

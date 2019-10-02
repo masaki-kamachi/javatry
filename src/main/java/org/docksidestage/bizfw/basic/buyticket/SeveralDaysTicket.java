@@ -3,6 +3,8 @@ package org.docksidestage.bizfw.basic.buyticket;
 public class SeveralDaysTicket implements Ticket {
 
     private final int displayPrice;
+    // TODO chikama countとremainCountが並んでるのが少し気になる...一瞬countがわからなかった by jflute (2019/10/02)
+    // 最大回数とか日数とか、何かしらニュアンスが入るといいのかも？
     private final int count;
     private int remainCount;
 
