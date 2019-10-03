@@ -38,4 +38,13 @@ public class SupercarClient {
     protected SupercarDealer createDealer() {
         return new SupercarDealer();
     }
+
+    public static class CannotBuySupercarException extends RuntimeException {
+
+        private static final long serialVersionUID = 1L;
+
+        public CannotBuySupercarException(String msg, Throwable e) {
+            super(msg, e);
+        }
+    }
 }

@@ -96,15 +96,16 @@ public class Step07ExceptionTest extends PlainTestCase {
         try {
             String canonicalPath = new File(".").getCanonicalPath();
             log(canonicalPath);
+            throw new IOException("ioeのテスト");
         } catch (IOException e) {
-            log(e.getMessage());
+            log(e);
+            // DONE
             // TODO chikama これ、本当にスタックトレース出るのかな？...一応出るね。でもすごく見づらいけど by jflute (2019/10/02)
             // ちなみに、Eclipseだとこういう警告が出ている:
             // "Type StackTraceElement[] of the last argument to method log(Object...)
             // doesn't exactly match the vararg parameter type.
             // Cast to Object[] to confirm the non-varargs invocation,
             // or pass individual arguments of type Object for a varargs invocation."
-            log(e.getStackTrace());
         }
     }
 
@@ -174,8 +175,8 @@ public class Step07ExceptionTest extends PlainTestCase {
             // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
             // What happens? Write situation and cause here. (何が起きた？状況と原因をここに書いてみましょう)
             // - - - - - - - - - -
-            //
-            //
+            // 顧客がスーパーカーを購入したため、スーパーカーに必要なネジを製造していたが、
+            // 不正なSpecが指定されたため、ネジを製造することができず例外が発生した。
             //
             // _/_/_/_/_/_/_/_/_/_/
         }
@@ -214,7 +215,7 @@ public class Step07ExceptionTest extends PlainTestCase {
         try {
             helpThrowIllegalState();
         } catch (IllegalStateException e) {
-            throw new St7ConstructorChallengeException("Failed to do something.");
+            throw new St7ConstructorChallengeException("Failed to do something.", e);
         }
     }
 
