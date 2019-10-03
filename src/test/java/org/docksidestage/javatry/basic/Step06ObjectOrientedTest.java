@@ -389,6 +389,6 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
      */
     public void test_objectOriented_writing_() {
         // do nothing here
-        // TODO jflute [face-to-face]打ち合わせで聞きましょう (2019/10/02)
+        // done jflute [face-to-face]打ち合わせで聞きましょう (2019/10/02)
     }
 }
