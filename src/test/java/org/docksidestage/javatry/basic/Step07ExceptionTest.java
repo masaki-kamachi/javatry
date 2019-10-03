@@ -157,7 +157,7 @@ public class Step07ExceptionTest extends PlainTestCase {
         }
     }
 
-    // TODO jflute [face-to-face]打ち合わせで、ここの話をする。例外の翻訳重要 (2019/10/02)
+    // done jflute [face-to-face]打ち合わせで、ここの話をする。例外の翻訳重要 (2019/10/02)
     // ===================================================================================
     //                                                                         Translation
     //                                                                         ===========
