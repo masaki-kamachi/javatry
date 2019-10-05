@@ -10,5 +10,14 @@ public abstract class AbstractSt6Sql {
         return buildLimitOffsetQuery(offset, pageSize);
     }
 
+    // TODO chikama [tips]メソッド名のテクニックとして、publicとは似た名前にしないというのがあります by jflute (2019/10/06)
+    // クラス内でメソッド補完したときに、publicのbuild...とprotectedのbuild...が混じって見づらかったり間違えて呼んでしまったり...
+    // 別の動詞が使えるのであれば簡単だけど、意味が同じでbuildというワードをどちらでも使いたいというような場合は...
+    // doBuildLimitOffsetQuery() とか internalBuildLimitOffsetQuery() とか、ちょっと形を変えてあげることがある。
+    // (自分はprotectedの方に前者をよく使ってるね。publicの入り口メソッドに対してprotectedの「実際の処理」ってニュアンス)
+    //
+    // メソッド名デザインなので正解はないけど、こういう視点でメソッド名を調整したりするってことは学びになるんじゃないかと。
+    // オープンソースのコードを読むときも解釈しやすくなるかもね。
+    //
     protected abstract String buildLimitOffsetQuery(int offset, int pageSize);
 }

@@ -83,6 +83,7 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
         // ...
 
         // DONE chikama もう一個、間違いがある by jflute (2019/10/02)
+        // TODO chikama (続き)例外メッセージの値のところ by jflute (2019/10/06)
         //
         // [do in park now!!!]
         //

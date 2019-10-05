@@ -29,6 +29,7 @@ public abstract class Animal implements Loudable {
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
+    // TODO chikama unusedの警告が出ている、IntelliJでは出てないのかな？ (誰も使ってないので、もう削除してOK) by jflute (2019/10/06)
     private static final Logger logger = LoggerFactory.getLogger(Animal.class);
 
     // ===================================================================================
