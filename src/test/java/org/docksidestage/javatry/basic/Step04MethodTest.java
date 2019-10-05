@@ -169,9 +169,9 @@ public class Step04MethodTest extends PlainTestCase {
         return s.replace("C", "B");
     }
 
-    // TODO chikama 一応、メソッド名でPrefixを意識しているものなので、第一引数名は prefix がいいかな by jflute (2019/10/02)
-    private String addPrefix(String s1, String s2) {
-        return s1 + ":" + s2;
+    // DONE chikama 一応、メソッド名でPrefixを意識しているものなので、第一引数名は prefix がいいかな by jflute (2019/10/02)
+    private String addPrefix(String prefix, String target) {
+        return prefix + ":" + target;
     }
 
     private boolean availableLogging = true;

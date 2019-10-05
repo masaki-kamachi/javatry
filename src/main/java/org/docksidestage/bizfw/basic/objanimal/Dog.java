@@ -17,12 +17,14 @@ package org.docksidestage.bizfw.basic.objanimal;
 
 
 import org.docksidestage.bizfw.basic.objanimal.runner.FastRunner;
+import org.docksidestage.bizfw.basic.objanimal.swimmer.Swimmer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * The object for dog(犬).
  * @author jflute
+ * @author masaki.kamachi
  */
 public class Dog extends Animal implements FastRunner, Swimmer {
 
@@ -52,7 +54,10 @@ public class Dog extends Animal implements FastRunner, Swimmer {
         logger.debug("...Running now");
     }
 
-    // TODO chikama タグコメント Runner の中に、swim()が入っている by jflute (2019/10/02)
+    // ===================================================================================
+    //                                                                             Swimmer
+    //                                                                           =========
+    // DONE chikama タグコメント Runner の中に、swim()が入っている by jflute (2019/10/02)
     @Override
     public void swim() {
         logger.debug("Dog shaking...");

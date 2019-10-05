@@ -636,7 +636,7 @@ for (int ${index} = 0; ${index} &lt; ${table}.getColumnCount(); ${index}++) {
 ${column}.setText(${word_selection}${});
 ${imp:import(org.eclipse.swt.SWT)}${cursor}</template>
 <template autoinsert="false" context="swt-statements" deleted="false" description="new TableItem for a Table" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.swt.tableitem" name="TableItem">${type:newType(org.eclipse.swt.widgets.TableItem)} ${item:newName(org.eclipse.swt.widgets.TableItem)}= new ${type}(${parent:var(org.eclipse.swt.widgets.Table)}, SWT.NONE);
-${item}.setText(${count:link(0, 1, 2, 3, 4, 5)}, ${word_selection}${});
+${item}.setText(${dayCount:link(0, 1, 2, 3, 4, 5)}, ${word_selection}${});
 ${imp:import(org.eclipse.swt.SWT)}${cursor}</template>
 <template autoinsert="false" context="java-members" deleted="false" description="test method (JUnit 3)" enabled="true" id="org.eclipse.jdt.ui.templates.test" name="test">public void test${name}() throws Exception {
 	// ## Arrange ##
@@ -679,7 +679,7 @@ for (int ${index} = 0; ${index} &lt; ${tree}.getColumnCount(); ${index}++) {
 ${column}.setText(${word_selection}${});
 ${imp:import(org.eclipse.swt.SWT)}${cursor}</template>
 <template autoinsert="false" context="swt-statements" deleted="false" description="new TreeItem for a Tree" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.swt.treeitem" name="TreeItem">${type:newType(org.eclipse.swt.widgets.TreeItem)} ${item:newName(org.eclipse.swt.widgets.TreeItem)}= new ${type}(${parent:var(org.eclipse.swt.widgets.Tree, org.eclipse.swt.widgets.TreeItem)}, SWT.NONE);
-${item}.setText(${count:link(0, 1, 2, 3, 4, 5)}, ${word_selection}${});
+${item}.setText(${dayCount:link(0, 1, 2, 3, 4, 5)}, ${word_selection}${});
 ${imp:import(org.eclipse.swt.SWT)}${cursor}</template>
 <template autoinsert="true" context="javadoc" deleted="false" description="&lt;code&gt;true&lt;/code&gt;" enabled="true" id="org.eclipse.jdt.ui.templates.code_tag_true" name="true">&lt;code&gt;true&lt;/code&gt;</template>
 <template autoinsert="false" context="java-statements" deleted="false" description="try catch block" enabled="true" id="org.eclipse.jdt.ui.templates.try" name="try_catch">try {

@@ -17,17 +17,16 @@ package org.docksidestage.javatry.basic;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.docksidestage.unit.PlainTestCase;
 
-// TODO chikama unusedのimport宣言があるよ by jflute (2019/10/02)
+// DONE chikama unusedのimport宣言があるよ by jflute (2019/10/02)
 /**
  * The test of if-for. <br>
  * Operate exercise as javadoc. If it's question style, write your answer before test execution. <br>
  * (javadocの通りにエクササイズを実施。質問形式の場合はテストを実行する前に考えて答えを書いてみましょう)
  * @author jflute
- * @author your_name_here
+ * @author masaki.kamachi
  */
 public class Step02IfForTest extends PlainTestCase {
 
@@ -196,20 +195,21 @@ public class Step02IfForTest extends PlainTestCase {
         }
         log(sea); // should be same as before-fix
 
-        // TODO chikama [ふぉろー]もはや良い方法とも言えないけど、new boolean[0] も使えるよ by jflute (2019/10/02)
-        List<Boolean> next = new ArrayList<>();
-        next.add(0, true);
-        List<String> result = new ArrayList<>();
+        // DONE chikama [ふぉろー]もはや良い方法とも言えないけど、new boolean[0] も使えるよ by jflute (2019/10/02)
+        boolean next[] = new boolean[1];
+        next[0] = true;
+        String result[] = new String[1];
         stageList.stream().filter(stage -> !stage.startsWith("br"))
                 .forEach(stage -> {
-                    if (!next.get(0)) {
+                    if (!next[0]) {
                         return;
                     }
-                    result.add(0, stage);
+                    result[0] = stage;
                     if (stage.contains("ga")) {
-                        next.add(0, false);
+                        next[0] = false;
                     }
                 });
+        log(result[0]);
     }
 
     /**

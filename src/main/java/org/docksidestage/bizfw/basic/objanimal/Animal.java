@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 /**
  * The object for animal(動物).
  * @author jflute
+ * @author masaki.kamachi
  */
 public abstract class Animal implements Loudable {
 
@@ -41,11 +42,15 @@ public abstract class Animal implements Loudable {
     //                                                                         ===========
     public Animal() {
         hitPoint = getInitialHitPoint();
-        barkProcess = new BarkProcess();
+        barkProcess = getBarkProcess();
     }
 
     protected int getInitialHitPoint() {
         return 10; // as default
+    }
+
+    protected BarkProcess getBarkProcess() {
+        return new BarkProcess();
     }
 
     // ===================================================================================
@@ -55,17 +60,8 @@ public abstract class Animal implements Loudable {
         return barkProcess.bark(this);
     }
 
-    // TODO chikama 修行++: 「これらprotectedメソッドたちをAnimalに残した理由は？」と聞かれたらどう答える？ by jflute (2019/10/02)
-    protected void prepareAbdominalMuscle() {
-        logger.debug("...Using my abdominal muscle"); // dummy implementation
-        downHitPoint();
-    }
-
-    protected void breatheIn() {
-        logger.debug("...Breathing in"); // dummy implementation
-        downHitPoint();
-    }
-
+    // DONE chikama 修行++: 「これらprotectedメソッドたちをAnimalに残した理由は？」と聞かれたらどう答える？ by jflute (2019/10/02)
+    // BarkProcessクラスに移行しました。
     protected abstract String getBarkWord();
 
     // ===================================================================================

@@ -18,10 +18,10 @@ package org.docksidestage.bizfw.basic.buyticket;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO chikama authorよろしくお願いしたい (俺が作ったことになってしまう) by jflute (2019/10/02)
+// DONE chikama authorよろしくお願いしたい (俺が作ったことになってしまう) by jflute (2019/10/02)
 // もしauthor運用をしないのであれば、逆に消したほうが良い。
 /**
- * @author jflute
+ * @author masaki.kamachi
  */
 public class TicketBooth {
 
@@ -34,8 +34,9 @@ public class TicketBooth {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    // TODO chikama [確認]チケット残数は、OneDayとTwoDayで共有でいいのかな？ by jflute (2019/10/02)
+    // DONE chikama [確認]チケット残数は、OneDayとTwoDayで共有でいいのかな？ by jflute (2019/10/02)
     // つまり、OneDayが10枚売れたら、TwoDayは売り切れになるでOK？
+    // チケットの残数はチケットの種類に寄らず共有する
     private int quantity = MAX_QUANTITY;
     private Integer salesProceeds;
 
@@ -78,14 +79,14 @@ public class TicketBooth {
             salesProceeds = price;
         }
         final int charge = handedMoney - price;
-        // TODO chikama [いいね]おお、かっこいい。ChainOfResponsibilityっぽい感じになってるのかも!? by jflute (2019/10/02)
+        // DONE chikama [いいね]おお、かっこいい。ChainOfResponsibilityっぽい感じになってるのかも!? by jflute (2019/10/02)
         Ticket ticket = ticketFactories.stream()
                 .filter(f -> f.suitable(type))
                 .map(f -> f.create(type))
                 .findFirst()
-                // TODO chikama TicketTypeが見当たらないというよりも、対応するFactoryが見つからないってニュアンスなのかなと by jflute (2019/10/02)
+                // DONE chikama TicketTypeが見当たらないというよりも、対応するFactoryが見つからないってニュアンスなのかなと by jflute (2019/10/02)
                 // もしくは、「不正なTicketType」ってニュアンス。
-                .orElseThrow(() -> new TicketTypeNotFoundException("Not fount type: " + type));
+                .orElseThrow(() -> new TicketFactoryNotFoundException("Not fount type: " + type));
         return new TicketBuyResult(charge, ticket);
     }
 
@@ -107,10 +108,10 @@ public class TicketBooth {
         }
     }
 
-    public static class TicketTypeNotFoundException extends RuntimeException {
+    public static class TicketFactoryNotFoundException extends RuntimeException {
         private static final long serialVersionUID = 1L;
 
-        public TicketTypeNotFoundException(String msg) {
+        public TicketFactoryNotFoundException(String msg) {
             super(msg);
         }
     }

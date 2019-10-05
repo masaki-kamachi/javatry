@@ -27,7 +27,7 @@ import org.docksidestage.unit.PlainTestCase;
  * Operate as javadoc. If it's question style, write your answer before test execution. <br>
  * (javadocの通りに実施。質問形式の場合はテストを実行する前に考えて答えを書いてみましょう)
  * @author jflute
- * @author your_name_here
+ * @author masaki.kamachi
  */
 public class Step07ExceptionTest extends PlainTestCase {
 
@@ -99,8 +99,7 @@ public class Step07ExceptionTest extends PlainTestCase {
             throw new IOException("ioeのテスト");
         } catch (IOException e) {
             log(e);
-            // DONE
-            // TODO chikama これ、本当にスタックトレース出るのかな？...一応出るね。でもすごく見づらいけど by jflute (2019/10/02)
+            // DONE chikama これ、本当にスタックトレース出るのかな？...一応出るね。でもすごく見づらいけど by jflute (2019/10/02)
             // ちなみに、Eclipseだとこういう警告が出ている:
             // "Type StackTraceElement[] of the last argument to method log(Object...)
             // doesn't exactly match the vararg parameter type.
@@ -189,7 +188,7 @@ public class Step07ExceptionTest extends PlainTestCase {
      */
     public void test_exception_translation_improveChallenge() {
         try {
-            // TODO chikama [いいね]しっかり翻訳でわかりやすくなったし、ちゃんとポイントとなる値を例外メッセージに載せてるのがGood by jflute (2019/10/04)
+            // DONE chikama [いいね]しっかり翻訳でわかりやすくなったし、ちゃんとポイントとなる値を例外メッセージに載せてるのがGood by jflute (2019/10/04)
             // その辺のテクニックと現場感、ぜひ伝えてあげてください。
             // 例外メッセージ、敬語で満足でもロスロスパターン: https://jflute.hatenadiary.jp/entry/20170804/explossloss
             new SupercarClient().buySupercar(); // you can fix the classes

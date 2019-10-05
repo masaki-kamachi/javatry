@@ -1,12 +1,14 @@
 package org.docksidestage.bizfw.basic.buyticket;
 
+/**
+ * @author masaki.kamachi
+ */
 public class TicketBuyResult {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    // TODO chikama 空行削除 (TicketBoothとかタグコメントの下は空行開けてないので) by jflute (2019/10/02)
-
+    // DONE chikama 空行削除 (TicketBoothとかタグコメントの下は空行開けてないので) by jflute (2019/10/02)
     private final int change;
     private final Ticket ticket;
 

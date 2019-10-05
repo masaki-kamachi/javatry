@@ -163,9 +163,9 @@ public class Step05ClassTest extends PlainTestCase {
         // your confirmation code here
         TicketBooth booth = new TicketBooth();
         TicketBuyResult oneDayRes = booth.buyOneDayPassport(8000);
-        log(oneDayRes.getTicket().getCount());
+        log(oneDayRes.getTicket().getDayCount());
         TicketBuyResult severalDaysRes = booth.buyTwoDayPassport(20000);
-        log(severalDaysRes.getTicket().getCount());
+        log(severalDaysRes.getTicket().getDayCount());
     }
 
     // ===================================================================================

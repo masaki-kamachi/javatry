@@ -22,6 +22,7 @@ import org.docksidestage.bizfw.basic.objanimal.*;
 import org.docksidestage.bizfw.basic.objanimal.loud.AlarmClock;
 import org.docksidestage.bizfw.basic.objanimal.loud.Loudable;
 import org.docksidestage.bizfw.basic.objanimal.runner.FastRunner;
+import org.docksidestage.bizfw.basic.objanimal.swimmer.Swimmer;
 import org.docksidestage.javatry.basic.st6.dbms.AbstractSt6Sql;
 import org.docksidestage.javatry.basic.st6.dbms.St6MySql;
 import org.docksidestage.javatry.basic.st6.dbms.St6PostgreSql;
@@ -69,7 +70,7 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
             throw new IllegalStateException("Short money: handedMoney=" + handedMoney);
         }
         --quantity;
-        salesProceeds = handedMoney - oneDayPrice;
+        salesProceeds = oneDayPrice;
 
         //
         // [ticket info]
@@ -81,7 +82,7 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
         // ...
         // ...
 
-        // TODO chikama もう一個、間違いがある by jflute (2019/10/02)
+        // DONE chikama もう一個、間違いがある by jflute (2019/10/02)
         //
         // [do in park now!!!]
         //
@@ -341,7 +342,7 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
      */
     public void test_objectOriented_writing_generalization_extractToAbstract() {
         // your confirmation code here
-        // TODO chikama "int offset = pageSize * (pageNumber - 1);" の部分が冗長しているので再利用したいね by jflute (2019/10/02)
+        // DONE chikama "int offset = pageSize * (pageNumber - 1);" の部分が冗長しているので再利用したいね by jflute (2019/10/02)
         St6MySql mysql = new St6MySql();
         log(mysql.buildPagingQuery(2, 20));
         log(mysql instanceof AbstractSt6Sql);
@@ -356,7 +357,8 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
      */
     public void test_objectOriented_writing_specialization_extractToConcrete() {
         // your confirmation code here
-        // TODO chikama 修行++: もし、「St6MacとSt6WindowsでgetUserDirectory()が同じなので再利用すべきでは？」って言われたらどう答える？ by jflute (2019/10/02)
+        // DONE chikama 修行++: もし、「St6MacとSt6WindowsでgetUserDirectory()が同じなので再利用すべきでは？」って言われたらどう答える？ by jflute (2019/10/02)
+        // 製造元が違うため、今後もMacとWindowsが同じになる理由がないため、たまたま一緒と考え、分けたおいた方が今後の変更に強い　と答えますかね〜
         // (getFileSeparator()も似たような話になります)
         St6OperationSystem mac = new St6Mac("qwer");
         log(mac.buildUserResourcePath("/tmp"));
