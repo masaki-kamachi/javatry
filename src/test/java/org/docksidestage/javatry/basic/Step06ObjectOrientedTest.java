@@ -83,8 +83,7 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
         // ...
 
         // DONE chikama もう一個、間違いがある by jflute (2019/10/02)
-        // TODO chikama (続き)例外メッセージの値のところ by jflute (2019/10/06)
-        // DONE
+        // DONE chikama (続き)例外メッセージの値のところ by jflute (2019/10/06)
         //
         // [do in park now!!!]
         //
@@ -362,6 +361,8 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
         // DONE chikama 修行++: もし、「St6MacとSt6WindowsでgetUserDirectory()が同じなので再利用すべきでは？」って言われたらどう答える？ by jflute (2019/10/02)
         // 製造元が違うため、今後もMacとWindowsが同じになる理由がないため、たまたま一緒と考え、分けたおいた方が今後の変更に強い　と答えますかね〜
         // (getFileSeparator()も似たような話になります)
+        // いいね。標準委員会とかが決めていれば別だけど、知っている限りたまたまで、変わるときは片方だけ変わるとか十分有り得そうだよね by jflute
+        // 「コードが同じだから再利用するのではなく、意味が同じだから再利用する」だね。
         St6OperationSystem mac = new St6Mac("qwer");
         log(mac.buildUserResourcePath("/tmp"));
         St6OperationSystem windows = new St6Windows("asdf");

@@ -196,8 +196,7 @@ public class Step02IfForTest extends PlainTestCase {
         log(sea); // should be same as before-fix
 
         // DONE chikama [ふぉろー]もはや良い方法とも言えないけど、new boolean[0] も使えるよ by jflute (2019/10/02)
-        // TODO chikama [tips]普段なら全然OKだけど、Java研修ということで。new boolean[] { true } で初期値入れてnewできる by jflute (2019/10/06)
-        // DONE
+        // DONE chikama [tips]普段なら全然OKだけど、Java研修ということで。new boolean[] { true } で初期値入れてnewできる by jflute (2019/10/06)
         boolean next[] = new boolean[]{true};
         String result[] = new String[1];
         stageList.stream().filter(stage -> !stage.startsWith("br"))

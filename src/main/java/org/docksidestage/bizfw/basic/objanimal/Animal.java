@@ -24,8 +24,7 @@ import org.docksidestage.bizfw.basic.objanimal.loud.Loudable;
  */
 public abstract class Animal implements Loudable {
 
-    // TODO chikama unusedの警告が出ている、IntelliJでは出てないのかな？ (誰も使ってないので、もう削除してOK) by jflute (2019/10/06)
-    // DONE
+    // DONE chikama unusedの警告が出ている、IntelliJでは出てないのかな？ (誰も使ってないので、もう削除してOK) by jflute (2019/10/06)
 
     // ===================================================================================
     //                                                                           Attribute
