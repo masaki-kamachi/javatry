@@ -22,6 +22,7 @@ import org.docksidestage.bizfw.basic.screw.SpecialScrewManufacturer.ScrewSpec;
 /**
  * The manufacturer(製造業者) of supercar steering wheel(車のハンドル).
  * @author jflute
+ * @author masaki.kamachi
  */
 public class SupercarSteeringWheelManufacturer {
 

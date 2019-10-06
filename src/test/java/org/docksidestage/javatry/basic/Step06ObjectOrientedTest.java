@@ -84,11 +84,12 @@ public class Step06ObjectOrientedTest extends PlainTestCase {
 
         // DONE chikama もう一個、間違いがある by jflute (2019/10/02)
         // TODO chikama (続き)例外メッセージの値のところ by jflute (2019/10/06)
+        // DONE
         //
         // [do in park now!!!]
         //
         if (alreadyIn) {
-            throw new IllegalStateException("Already in park by this ticket: displayPrice=" + quantity);
+            throw new IllegalStateException("Already in park by this ticket: displayPrice=" + displayPrice);
         }
         alreadyIn = true;
 

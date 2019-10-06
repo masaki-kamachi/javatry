@@ -1,5 +1,8 @@
 package org.docksidestage.bizfw.basic.buyticket;
 
+/**
+ * @author masaki.kamachi
+ */
 public class OneDayTicketFactory implements TicketFactory {
     @Override
     public boolean suitable(TicketType type) {

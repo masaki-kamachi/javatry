@@ -3,6 +3,9 @@ package org.docksidestage.bizfw.basic.objanimal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author masaki.kamachi
+ */
 public class BarkProcess {
 
     private static final Logger logger = LoggerFactory.getLogger(Animal.class);

@@ -22,7 +22,7 @@ package org.docksidestage.javatry.basic.st6.dbms;
 public class St6MySql extends AbstractSt6Sql {
 
     @Override
-    protected String buildLimitOffsetQuery(int offset, int pageSize) {
+    protected String doBuildLimitOffsetQuery(int offset, int pageSize) {
         return "limit " + offset + ", " + pageSize;
     }
 }

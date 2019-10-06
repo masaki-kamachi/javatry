@@ -7,7 +7,7 @@ public abstract class AbstractSt6Sql {
 
     public String buildPagingQuery(int pageSize, int pageNumber) {
         int offset = pageSize * (pageNumber - 1);
-        return buildLimitOffsetQuery(offset, pageSize);
+        return doBuildLimitOffsetQuery(offset, pageSize);
     }
 
     // TODO chikama [tips]メソッド名のテクニックとして、publicとは似た名前にしないというのがあります by jflute (2019/10/06)
@@ -19,5 +19,6 @@ public abstract class AbstractSt6Sql {
     // メソッド名デザインなので正解はないけど、こういう視点でメソッド名を調整したりするってことは学びになるんじゃないかと。
     // オープンソースのコードを読むときも解釈しやすくなるかもね。
     //
-    protected abstract String buildLimitOffsetQuery(int offset, int pageSize);
+    // DONE 今までこの点意識したことなかったかつ、おっしゃる通りのミスをよくしそうになっていたので勉強になります..!ありがとうございます。
+    protected abstract String doBuildLimitOffsetQuery(int offset, int pageSize);
 }

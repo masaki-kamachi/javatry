@@ -16,8 +16,6 @@
 package org.docksidestage.bizfw.basic.objanimal;
 
 import org.docksidestage.bizfw.basic.objanimal.loud.Loudable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * The object for animal(動物).
@@ -26,11 +24,8 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class Animal implements Loudable {
 
-    // ===================================================================================
-    //                                                                          Definition
-    //                                                                          ==========
     // TODO chikama unusedの警告が出ている、IntelliJでは出てないのかな？ (誰も使ってないので、もう削除してOK) by jflute (2019/10/06)
-    private static final Logger logger = LoggerFactory.getLogger(Animal.class);
+    // DONE
 
     // ===================================================================================
     //                                                                           Attribute

@@ -20,6 +20,7 @@ import org.docksidestage.bizfw.basic.supercar.SupercarSteeringWheelManufacturer.
 /**
  * The manufacturer(製造業者) of supercar.
  * @author jflute
+ * @author masaki.kamachi
  */
 public class SupercarManufacturer {
 
